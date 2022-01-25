@@ -1,0 +1,13 @@
+{
+  "name": "dblocks",
+  "version": "1.0.0",
+  "description": "Breeze block explorer",
+  "scripts": {
+    "start": "http-server"
+  },
+  "author": "techcoderx",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

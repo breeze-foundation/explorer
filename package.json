@@ -1,11 +1,11 @@
 {
-  "name": "dblocks",
+  "name": "BreezeScan",
   "version": "1.0.0",
   "description": "Breeze block explorer",
   "scripts": {
-    "start": "http-server"
+    "start": "node index.js"
   },
-  "author": "techcoderx",
+  "author": "Techcoderx & NicBird",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"

@@ -27,20 +27,31 @@ const TransactionTypes = {
     28: 'SET_LAST_READ'
 }
 
-function txCardsHtml(blocks) {
+function txCardsHtml(txs = []) {
     let result = ''
-    if (blocks.length === undefined) {
-        result += getOneRowHtml(blocks)
+    if (txs.length === undefined) {
+        result += getOneRowHtml(txs)
     } else {
-        for (let i = 0; i < blocks.length; i++) {
-            result += getOneRowHtml(blocks[i]);
+        for (let i = 0; i < txs.length; i++) {
+            result += getOneRowHtml(txs[i]);
         }
     }
 
     return result
 }
 
-function txACardsHtml(blocks) {
+function txACardsHtml(txs = []) {
+    let result = ''
+    for (let j = 0; j < txs.length; j++) {
+        result += '<div class="card dblocks-card"><p class="dblocks-card-content">' + DOMPurify.sanitize(txToHtml(txs[j]))
+        result += '<a class="p2" href="#/tx/' + txs[j].hash + '" style="color: rgb(248 246 246 / 70%);">[' + getUserAddress(txs[j].hash) + ']</a>'
+        result += '</a></p></div>'
+    }
+    return result
+}
+
+
+function txBCardsHtml(blocks) {
     let result = ''
     for (let i = 0; i < blocks.length; i++)
         for (let j = 0; j < blocks[i].txs.length; j++) {
@@ -51,6 +62,7 @@ function txACardsHtml(blocks) {
         }
     return result
 }
+
 function getOneRowHtml(one) {
     let result = ''
     for (let j = 0; j < one.txs.length; j++) {
@@ -192,17 +204,17 @@ function txToHtml(tx) {
         case 22:
             return result + ' set master key weight to ' + tx.data.weight
         case 23:
-            return result + ' initiated withdrawal'
+            return result + ' initiated withdrawal '
         case 24:
-            return result + ' withdrawal status updated'
+            return result + ' withdrawal status updated '
         case 25:
-            return result + ' tokens deposit initiated'
+            return result + ' tokens deposit initiated '
         case 26:
-            return result + ' subscribed to category'
+            return result + ' subscribed to category '
         case 27:
-            return result + ' unsubscribed to category'
+            return result + ' unsubscribed to category '
         case 28:
-            return result + ' checked notifications'
+            return result + ' checked notifications '
         default:
             return 'Unknown transaction type ' + tx.type
     }
@@ -213,7 +225,7 @@ function aUser(user) {
 }
 
 function aContent(content) {
-    return '<a href="#/content/'+content+'">@'+content+'</a>'
+    return '<a href="#/content/'+content+'">@'+content+ ' </a>'
 }
 
 function getUserAddress(userAddress) {

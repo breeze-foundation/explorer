@@ -95,7 +95,7 @@ export default class extends view {
             $('#content-ts').text(content.data.ts)
             $('#content-ts').append(' <span class="badge badge-pill badge-info">' + new Date(content.data.ts).toLocaleString() + '</span>')
             $('#content-json').html(jsonToTableRecursive(content.data.json))
-            $('#content-besocial').attr('href', 'https://besocial.ai/post/' + this.contentId)
+            $('#content-besocial').attr('href', 'https://tipmeacoffee.com/post/' + this.contentId)
 
             if (content.data.pa && content.data.pp) {
                 $('#content-parent-btn').show()
@@ -104,12 +104,12 @@ export default class extends view {
                 $('#content-pp').text(content.data.pp)
                 $('.content-parent').show()
                 $('.content-heading').prepend('Comment')
-                $('#content-besocial').append('View comment on BeSocial')
+                $('#content-besocial').append('View comment on TipMeAcoffee')
             } else {
                 $('#content-parent-btn').removeClass('d-inline')
                 $('#content-parent-btn').hide()
                 $('.content-heading').prepend('<img src="https://img.icons8.com/ios/24/709CF0/document--v1.png"/>')
-                $('#content-besocial').append('View on BeSocial')
+                $('#content-besocial').append('View on TipMeACoffee')
             }
 
             // Votes

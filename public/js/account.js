@@ -61,8 +61,7 @@ export default class extends view {
                         </div>
                         <p id="acc-meta-created"></p>
                         <a type="button" target="_blank" class="btn btn-primary btn-block" id="acc-profile-dtube">View Profile
-                            on
-                            BeSocial</a>
+                            on TipMeACoffee</a>
                     </div>
                     <div class="cmn-display">
                         
@@ -192,7 +191,7 @@ export default class extends view {
         $("#acc-customkey").append(this.customKeyHtml(acc.data.keys));
         $("#acc-profile-dtube").attr(
           "href",
-          "https://besocial.ai/profile/" + acc.data.name
+          "https://tipmeacoffee.com/profile/" + acc.data.name
         );
 
         //if (flairs[this.account]) {$('#acc-name').html($('#acc-name').html() + ' <br><span class="badge badge-secondary">' + flairs[this.account] + '</span>')}

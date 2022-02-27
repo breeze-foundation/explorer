@@ -90,7 +90,7 @@ export default class extends view {
             for (let i = 0; i < richlist.data.length; i++) {
                 htmlresult += '<tr><th scope="row">' + (i + 1) + '</th>'
                 htmlresult += '<td><a href="#/@'+richlist.data[i].name+'" style="font-size:12px;font-weight:normal;">' + richlist.data[i].name + '</a></td>'
-                htmlresult += '<td>' + thousandSeperator((richlist.data[i].balance / 1000000).toFixed(2)) + ' TMAC</td>'
+                htmlresult += '<td>' + thousandSeperator((richlist.data[i].balance / 1000000).toFixed(6)) + ' TMAC</td>'
                 htmlresult += '<td>' + richlist.data[i].subs + '</td>'
                 htmlresult += '<td>' + richlist.data[i].subbed + '</td></tr>'
             }
